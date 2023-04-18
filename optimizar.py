@@ -1,9 +1,33 @@
-class optimizar:
+class Optimizar:
 
+    '''
+    Creamos el array para almacenar los números introducidos, y creamos un constructor
+    con sus parametros. Crearemos varios métodos:
+    '''
     
     array = []
-for i in range(3):
-    n = int(input("Introduzca un número: ")) #Pedimos al usuario que de un valor a la variable
-    array.append(n) #Añade un elemento al final del array
-media = sum(array) / len(array) #Media va a ser igual a: la suma de los valores del array dividido entre la longitud del array
-print("La media es " + str(media)) #Importante hacer el casting con str para que no de error el hacer el print
+    def __init__(self,array):
+        self.array = array
+
+    # Método que imprime "introduzca un numero", escanea 
+    # por teclado y devuelvo el num introducido
+    
+    def introducir_numero(self) -> int:
+        print("Introduzca un número:")
+        n = int(input())
+        return n
+    
+    # Este método añade un valor al array, y lo imprime por pantalla
+    
+    def añadir_valor_array(self, n):
+        self.array.append(n) #Añadimos el valor a la variable array
+        return n
+
+    # Método para sumar todos los números del array y hacer la media
+    
+    def media(self) -> int:
+        sumaTotal = 0       #Inicializamos la variable sumaTotal
+        for n in self.array:
+            sumaTotal = sumaTotal + n  #Creamos un for para sumar los números del array
+        media = sumaTotal/len(self.array) #Calculamos la media, len indica la cantidad de elementos del array
+        return media
